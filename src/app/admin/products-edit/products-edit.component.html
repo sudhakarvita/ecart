@@ -1,0 +1,72 @@
+<div class="card w-50 mt-2 col-sm-2" >
+    <form [formGroup]= "editProduct">
+      <div class="card-header">
+       Edit Product
+      </div>
+      
+      <div class="card-body">
+        <div class="row g-3">
+          <div class="col">
+             <label for="fn">Title</label>
+               <input   type="text" class="form-control" placeholder="Title" name="title" formControlName="title">
+                    <small class="text-danger" *ngIf= "editProduct.controls.title.touched && editProduct.controls.title.errors?.required">required field</small>      
+        </div>
+        <div class="col">
+            <label for="ln">Category</label>
+                <input   type="text" class="form-control" placeholder="Category" name="category" formControlName="category">
+                   
+        </div>
+        </div><br>
+        <div class="row g-3">
+            <div class="col">
+               <label for="pr">Price</label>
+                 <input   type="number" class="form-control" placeholder="Price" name="price" formControlName="price">
+                 <small  class="text-danger" *ngIf= "editProduct.controls.price.touched && editProduct.controls.price.errors?.required">required field</small>     
+          </div>
+          <div class="col">
+              <label for="rt">Rating</label>
+                  <input   type="number" class="form-control" placeholder="Rating" name="rating" formControlName="rating">
+                  <small class="text-danger" *ngIf= "editProduct.controls.rating.touched && editProduct.controls.rating.errors?.required">required field</small> 
+          </div>
+          </div><br>
+     <div class="row g-3">
+        <div class="col w-100">
+            <label for="dc">Description</label>
+              <input   type="text" class="form-control" placeholder="Description" name="description" formControlName="description">
+              <small class="text-danger" *ngIf= "editProduct.controls.description.touched && editProduct.controls.description.errors?.required">required field</small>     
+       </div>
+    </div><br>
+    <div class="row g-3 ">
+        <div class="w-75 ">
+            <label for="im">Add Image</label>
+              <input   type="text" class="form-control" placeholder="image" name="description" [(ngModel)]="imgUrl" #img="ngModel" [ngModelOptions]="{standalone: true}">
+              <small class="text-danger" *ngIf= "img.touched && images.length == 0 ">required field</small>     
+        </div>
+            <div class=" g-3 w-25">               
+                    <button class=" btn btn-primary mt-4 ms-10" (click)="addImage()" >Edit Image</button>                  
+            </div>
+    <div class="row g-3 ">
+        <div class="w-50 col-sm-2">
+            <ul>
+                <li *ngFor="let item of images; let i=index">{{item}} <i class="text-danger" style="cursor: pointer;" (click)="removeImgUrl(i)">x</i> </li>
+            </ul>
+       </div>
+       <div class="w-50 d-flex col-sm-2">
+            <div class="row">
+                <div class="w-50" *ngFor="let imgUrl of images" style="margin:2px">
+                <img [src]="imgUrl" alt="img" style="width:100%; height: 100%; border-radius: 3px;">
+                </div>
+        </div>
+       </div>
+    </div>                  
+    </div>
+
+    </div>
+        <div class="card-footer"> 
+            <button class="btn btn-warning w-40" (click)="cancel()">Cancel</button>
+            <button class="btn btn-secondary ms-2 w-40" routerLink="../../">Go To Products</button>
+            <button type="button" class="btn btn-primary" style="width: 100px;margin-left: 250px;" [disabled]= "editProduct.invalid" (click)="submit()">submit</button>
+           
+        </div>
+    </form>
+</div>

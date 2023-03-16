@@ -1,0 +1,9 @@
+.card-header{
+    text-align: center;
+    background-color: rgb(107, 107, 103);
+    font-weight: bold;
+    color: rgb(82, 22, 22);
+}
+.card{
+    background-color: rgb(212, 212, 214);
+}

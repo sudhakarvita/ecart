@@ -1,0 +1,100 @@
+<div class="card mt-3 w-50 h-2" >
+    <h5 class="card-header text-center ">Product Title</h5>
+     <form [formGroup]= "addProduct">
+       <div class="card-body">
+          <div class="row g-3">
+            <div class="col">
+               <label for="fn">Title</label>
+                 <input   type="text" class="form-control" placeholder="Title" name="title" formControlName="title" readonly >
+                      <!-- <small class="text-danger" *ngIf= "addProduct.controls.title.touched && addProduct.controls.title.errors?.required">required field</small>       -->
+          </div>
+          <div class="col">
+              <label for="ln">Category</label>
+                  <input   type="text" class="form-control" placeholder="Category" name="category" formControlName="category" readonly>
+                     
+          </div>
+          </div><br>
+          <div class="row g-3">
+              <div class="col">
+                 <label for="pr">Price</label>
+                   <input   type="number" class="form-control" placeholder="Price" name="price" formControlName="price" readonly>
+                   <!-- <small  class="text-danger" *ngIf= "addProduct.controls.price.touched && addProduct.controls.price.errors?.required">required field</small>      -->
+            </div>
+            <div class="col">
+                <label for="rt">Rating</label>
+                    <input   type="number" class="form-control" placeholder="Rating" name="rating" formControlName="rating" readonly>
+                    <!-- <small class="text-danger" *ngIf= "addProduct.controls.rating.touched && addProduct.controls.rating.errors?.required">required field</small>  -->
+            </div>
+            </div><br>
+       <div class="row g-3">
+          <div class="col w-100">
+              <label for="dc">Description</label>
+                <input   type="text" class="form-control" placeholder="Description" name="description" formControlName="description" readonly>
+                <!-- <small class="text-danger" *ngIf= "addProduct.controls.description.touched && addProduct.controls.description.errors?.required">required field</small>      -->
+         </div>
+      </div><br>
+       <!--<div class="row g-3 d-flex">
+                     
+                <input   type="text" class="form-control" placeholder="image" name="description" [(ngModel)]="imgUrl" #img="ngModel" [ngModelOptions]="{standalone: true}">
+                <small class="text-danger" *ngIf= "img.touched && images.length == 0 ">required field</small>     
+          </div>
+              <div class=" g-3 w-25">               
+                      <button class=" btn btn-primary mt-4 ms-10" (click)="addImage()" >Add Image</button>                  
+              </div>
+      <div class="row g-3 ">
+          <div class="w-50 ">
+              <ul>
+                  <li *ngFor="let item of images; let i=index">{{item}} <i class="text-danger" style="cursor: pointer;" (click)="removeImgUrl(i)">x</i> </li>
+              </ul>
+         </div>-->
+         <div>
+            <div class="row">
+              <label for="im"> Images</label>
+                <div class="col-sm-2" *ngFor="let imgUrl of images">               
+                  <div style="margin:2px">
+                     <img [src]="imgUrl" alt="img" style="width:100%; height: 100%; border-radius: 3px;">
+                  </div>
+              </div>
+           </div>
+         </div>
+                      
+      </div> 
+        <!--<div class="card-footer"> 
+              <button type="button" class="btn btn-primary" style="width: 100px;margin-left: 250px;" [disabled]="addProduct.invalid" (click)="submit()">submit</button> 
+          </div> -->
+      </form>
+        <div class="card-footer">
+          <div  style="margin-left: 150px;">
+            <button class="btn btn-secondary me-4 ms-2" [routerLink]="['../../']">Back</button>
+            <button class="btn btn-danger me-4 ms-2" (click)="openDeletePopup()">Delete</button>
+            <button class="btn btn-primary me-4 ms-2" [routerLink]="['../../product-edit',product?.id]">Edit</button>
+          </div>
+        </div>
+</div>
+
+    <div *ngIf=" deleteFlag" class="d-popup">
+      <div class="popbody">
+        <app-products-delete [productId]= "id" (flag)=" deleteFlag = $event"></app-products-delete>
+      </div>
+    </div>
+
+
+
+
+  <!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Delete This Product?</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <app-products-delete [productId]= "id"></app-products-delete>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div> -->

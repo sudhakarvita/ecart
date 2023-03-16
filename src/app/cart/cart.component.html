@@ -1,0 +1,54 @@
+<div class="container" *ngIf= "(cartData?.cartProducts?.length>0 || cartData != undefined)">
+    <table class="table">
+        <thead>
+         <tr>
+                <th>Serial No.</th>
+                <th>Product Title</th>
+                <th>Product Price</th>
+                <th>Product Quantity</th>
+                <th>Total Price</th>
+         </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let p of cartData.cartProducts; let i=index">
+                <td>{{i+1}}</td>
+                <td>{{p.title}}</td>
+                <td>{{p.price}}</td>
+                <td>{{p.quantity}}</td>
+                <td>{{p.total}}</td>
+                <td><button class="btn btn-danger" (click)="removeProduct(p)">Remove</button></td>
+          </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td></td>
+                <td></td><td><button class="btn btn-danger" (click)="emptyCart()">Remove All</button></td>
+                <td><b>Total Quantity::{{cartData.totalQuantity}}</b></td>
+                <td><b>Total Price::{{cartData.totalPrice}}</b></td>
+                <td></td> 
+            </tr>
+        </tfoot>
+      </table>
+      <div class="row " style="justify-content: center;">
+        <button class="btn btn-success w-25" (click)=" confirmOrder()">Confirm Order</button>
+      </div>
+</div>
+
+    <div class="text-center m-5 ">
+        <div *ngIf=" cartData == undefined">
+        <p><b>No Cart Items....</b><i class="bi bi-cart-x font-size:2rem;" style="font-size:2rem;color:brown"></i></p>       
+    </div>
+    <button class="btn btn-primary " routerLink="../products">Continue Shopping</button>
+</div>
+
+<div *ngIf="showFlag" class="d-popup">
+  <div class="popbody">
+    <div class="row text-center" >
+     <h3 class="text-success">Order Placed Successfully..</h3>
+      <div class="row " style="justify-content:space-around">
+        <button class="btn btn-primary w-50" routerLink="../products">Continue Shopping</button>
+          
+     </div>  
+  </div>
+  </div>
+</div>

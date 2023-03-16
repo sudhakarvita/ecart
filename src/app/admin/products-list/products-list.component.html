@@ -1,0 +1,42 @@
+ <div class="d-flex">
+      <div class=" d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pd-2 mb-3 border-bottom">
+          <div class="btn-toolbar mb-2 mb-md-0">
+              <div class="btn-group me-2">
+                <button type="button" *ngFor="let b of categories" class="btn btn-sm btn-outline-secondary"
+                [class.category]="b.active" style="width:98px" (click)="onCategory(b)">{{b.name}}</button>
+              </div>
+          </div>
+      </div>
+      
+      <div  class="  justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pd-2 mb-3 border-bottom">
+          <input class="form-control  w-100" id="search" type="search" placeholder="Search Products" aria-label="search"
+           (input)="onSearch($event)" [(ngModel)]="searchText">          
+      </div>
+      <span>
+        <button class=" btn btn-primary mt-3 ms-10" style="margin-left: 100px;" routerLink="../add-product">Add Product</button>
+      </span>
+  </div>
+
+
+<div>
+    <table class="table">
+        <thead class="table-light">
+          <tr>
+            <th>Product Id</th>
+            <th>Product Title</th>
+            <th>Product Description</th>
+            <th>Product Price</th>
+            <th >Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let p of allProducts">
+            <td>{{p.id}}</td>
+            <td>{{p.title}}</td>
+            <td>{{p.description}}</td>
+            <td>{{p.price}}</td>
+            <td><i [routerLink] = "['../products-details',p.id]" class="btn btn-primary">View</i></td>
+          </tr>
+        </tbody>
+      </table>
+</div>

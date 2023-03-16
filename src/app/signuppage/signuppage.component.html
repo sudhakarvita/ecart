@@ -1,0 +1,151 @@
+
+<div class="card">
+  <form [formGroup]= "signup">
+    <div class="card-header">
+     Signup
+    </div>
+    
+    <div class="card-body">
+      <div class="row g-3">
+        <div class="col">
+          <label for="fn">First name</label>
+          <input [class.is-invalid]= "fname?.invalid && fname?.touched"  type="text" class="form-control" placeholder="First name"  formControlName="fname">
+          <div *ngIf= "fname?.invalid && fname?.touched">
+            <small class="text-danger" *ngIf= "fname?.errors?.['required']">Firstname is required::</small> 
+            <small class="text-danger" *ngIf= "fname?.errors?.['minlength']">Firstname must be 3 charecters::</small>
+            <small class="text-danger" *ngIf= "fname?.errors?.['pattern']">Alphabets only</small>   
+           </div>
+        </div>
+        <div class="col">
+          <label for="ln">Last name</label>
+          <input  [class.is-invalid]= "lname?.invalid && lname?.touched"  type="text" class="form-control" placeholder="Last name"  formControlName="lname">
+          <div *ngIf= "lname?.invalid && lname?.touched">
+            <small class="text-danger" *ngIf= "lname?.errors?.['required']">Lastname is required::</small> 
+            <small class="text-danger" *ngIf= "lname?.errors?.['minlength']">Lastname must be 3charecters::</small> 
+            <small class="text-danger" *ngIf= "lname?.errors?.['pattern']">Alphabets only</small>   
+           </div>
+        </div>
+      </div><br>
+
+    <div class="row ">
+      <div class="col">
+      <label for="gd"  >Gender:</label><br>
+        <input  type="radio"  [class.is-invalid]= "gender?.invalid && gender?.touched" name="gender" value="Male" formControlName="gender">
+          <label>Male</label>     
+            <input type="radio" name="gender" value="Female"  style="margin-left: 30px;"  formControlName="gender">
+             <label>Female</label>
+             <div *ngIf= "gender?.invalid && gender?.touched">
+              <small class="text-danger" *ngIf= "gender?.errors?.['required']">Gender is required</small> 
+             
+             </div>  
+   </div>
+
+    <div class="col">
+       <label for="rl"  >Role Type:</label><br>
+          <input [class.is-invalid]= "role?.invalid && role?.touched" value="admin" type="radio" name="role"  formControlName="role" >
+             <label>Admin</label>     
+               <input type="radio" name="role" value="user" style="margin-left: 50px;"  formControlName="role">
+                 <label>User</label>
+            <div *ngIf= "role?.invalid && role?.touched">
+              <small class="text-danger" *ngIf= "role?.errors?.['required']">Role is required</small>            
+            </div>   
+    </div>
+    </div><br>
+    
+    <div>
+        <label for="email">Email</label>
+          <input type="text"  [class.is-invalid]= "email?.invalid && email?.touched"  class="form-control" placeholder="Email"   formControlName="email" >
+          <div *ngIf= "email?.invalid && email?.touched">
+          <small class="text-danger" *ngIf= "email?.errors?.['required']">Email is required</small>
+          <small class="text-danger" *ngIf= "email?.errors?.['pattern']">Invalid Email</small> 
+        </div>
+    </div><br>
+
+    <div>
+      <label for="mobile">Mobile</label>
+      <input type="" [class.is-invalid]= "mobile?.invalid && mobile?.touched"   class="form-control" placeholder="Mobile Number"  formControlName="mobile">
+      <div *ngIf= "mobile?.invalid && mobile?.touched">
+          <small class="text-danger" *ngIf= "mobile?.errors?.['required']">Mobilenumber is required</small> 
+          <small class="text-danger" *ngIf= "mobile?.errors?.['pattern']">Enter valid Mobile number.</small> 
+            <small class="text-danger" *ngIf= "mobile?.errors?.['minlength']">Must be 10 Numbers </small> 
+            <small class="text-danger" *ngIf= "mobile?.errors?.['maxlength']"> 10 Numbers only</small>    
+               
+      </div>
+   </div><br>
+
+   <div class="row g-3">
+    <div class="col">
+      <label for="pwd">Password</label>
+      <input type="password" [class.is-invalid]= "pwd?.invalid && pwd?.touched" class="form-control" placeholder="Password" name="pwd"  formControlName="pwd">
+      <div *ngIf= "pwd?.invalid && pwd?.touched">
+        <small class="text-danger" *ngIf= "pwd?.errors?.['required']">Password is required</small> 
+        <small class="text-danger" *ngIf= "pwd?.errors?.['minlength']"> must be 4 charecters</small>  
+       </div>
+    </div>
+    <div class="col">
+      <label for="cpwd">Confirm Password</label>
+      <input type="password" [class.is-invalid]= "cpwd?.invalid && cpwd?.touched" class="form-control" placeholder="Confirm Password" name="cpwd"  formControlName="cpwd">
+      <div *ngIf= "cpwd?.invalid && cpwd?.touched">
+        <small class="text-danger" *ngIf= "cpwd?.errors?.['required']">Confirm Password required</small> 
+        <small class="text-danger" *ngIf= "cpwd?.errors?.['MustMatch']">Confirm Password Didn't Match </small>  
+       </div>
+    </div>
+  </div><br>
+
+  <div formGroupName="address">
+  <div class="row g-3">
+    <div class="col">
+      <label for="ad">adrs</label>
+      <input type="text" [class.is-invalid]= "adrs?.invalid && adrs?.touched"  class="form-control" placeholder="Address"   formControlName="adrs">
+      <div *ngIf= "adrs?.invalid && adrs?.touched">
+        <small class="text-danger" *ngIf= "adrs?.errors?.['required']">H-NO. is required</small> 
+        <small class="text-danger" *ngIf= "adrs?.errors?.['minlength']"> must be 8 charecters</small>   
+       </div>
+    </div>
+    <div class="col">
+      <label for="ct">City</label>
+      <input type="text" [class.is-invalid]= "city?.invalid && city?.touched" class="form-control" placeholder="City"   formControlName="city">
+      <div *ngIf= "city?.invalid && city?.touched">
+        <small class="text-danger" *ngIf= "city?.errors?.['required']">City is required</small> 
+        <small class="text-danger" *ngIf= "city?.errors?.['minlength']">must be 3 charecters</small>
+        <small class="text-danger" *ngIf= "city?.errors?.['pattern']">Alphabets only</small>   
+       </div>
+    </div>
+  </div><br>
+ 
+  <div class="row g-3">
+    <div class="col">
+      <label for="st">State</label>
+      <input type="text"  [class.is-invalid]= "state?.invalid && state?.touched" class="form-control" placeholder="State"   formControlName="state">
+      <div *ngIf= "state?.invalid && state?.touched">
+        <small class="text-danger" *ngIf= "state?.errors?.['required']">state is required</small> 
+        <small class="text-danger" *ngIf= "state?.errors?.['minlength']">must be 3 charecters</small>
+        <small class="text-danger" *ngIf= "state?.errors?.['pattern']">Alphabets only</small>   
+       </div>
+    </div>
+    <div class="col">
+      <label for="pin">Pincode</label>
+      <input type="pincode" [class.is-invalid]= "pincode?.invalid && pincode?.touched"  class="form-control" placeholder="Pincode"  formControlName="pincode">
+      <div *ngIf= "pincode?.invalid && pincode?.touched">
+        <small class="text-danger" *ngIf= "pincode?.errors?.['required']">Pincode is required</small> 
+        <small class="text-danger" *ngIf= "pincode?.errors?.['maxlength']">Must be 6 charecters::</small>
+        <small class="text-danger" *ngIf= "pincode?.errors?.['pattern']">Please enter valid pincode</small>   
+       </div>
+    </div>
+  </div>
+</div>
+ <div style="margin-top: 5px; text-align: center;">
+  <input type="checkbox" name="check" style="margin-right: 5px;"  formControlName="check">
+  <label for="ch"><i> I Agree Terms And Conditions</i></label><br>
+</div>
+<div>
+  <button type="button" class="btn btn-primary" style="width: 100px;margin-left: 200px;" [disabled]="signup.invalid" (click)="submit()">submit</button>
+  <button class="btn btn-warning " style="margin: 50px;" routerLink="/login">Cancel</button>
+  <div class="text-center pt-4 ">Already have an account<a routerLink="/login">Login</a></div>
+</div>
+
+   
+    </div>
+  </form>
+  </div>
+

@@ -1,0 +1,42 @@
+<div class="card">
+    <form [formGroup]= "rgForm">
+    <div class="card-header">
+         Login
+    </div>
+     <div class="card-body"> 
+        <div>
+            <label for="uname">User Name/Email</label>
+            <input [class.is-invalid]= "userName?.invalid && userName?.touched" formControlName="userName"  type="text" class="form-control" placeholder="Email" >
+            <div *ngIf= "userName?.invalid && userName?.touched">
+             <small class="text-danger" *ngIf= "userName?.errors?.['required']">Username is required</small> 
+             <small class="text-danger" *ngIf= "userName?.errors?.['minlength']">Username must be 4 charecters</small>   
+            </div>
+        </div><br>
+
+        <div>
+        <label for="pwd">Password</label>
+        <input  [class.is-invalid]= "pwd?.invalid && pwd?.touched"  type="password" class="form-control" placeholder="Password" formControlName="pwd">
+        <div *ngIf= "pwd?.invalid && pwd?.touched">
+            <small class="text-danger" *ngIf= "pwd?.errors?.['required']">Password is required</small> 
+            <small class="text-danger" *ngIf= "pwd?.errors?.['minlength']">Password must be 4 charecters</small>   
+           </div>
+    </div><br>
+</div>
+<button type="button" class="btn btn-primary" style="width: 100px;margin-left: 180px;width:150px"(click)="submit(rgForm)" [disabled]="rgForm.invalid" >submit</button>
+<button type="button" class="btn btn-primary" style="margin-left: 50px;" routerLink="/register-user">Register New User</button>
+<div class="text-center pt-4 text-muted" style="color:rgb(234, 224, 224)">Don't have account?<a routerLink="/signuppage">Signup</a></div>
+
+</form>
+</div>
+
+
+ 
+  
+ 
+
+
+
+    
+   
+
+

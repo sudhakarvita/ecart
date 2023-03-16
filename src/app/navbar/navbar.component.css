@@ -1,0 +1,50 @@
+
+.navbar {
+  padding:0px;
+  height: 80px;
+  background-color: blue;
+}
+.sidebar {
+  margin: 0;
+  padding: 0;
+  width: 200px;
+  background-color: #f1f1f1;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+}
+
+ .sidebar a {
+  display: block;
+  color: rgb(119, 114, 114);
+  padding: 16px;
+ 
+}
+.form-control{
+  border-radius: 10px;
+  margin-right: 700px;
+}
+ 
+#sidebarMenu{
+  z-index: 1;
+}
+.nav  li a.active{
+  color: rgb(59, 15, 15);
+  font-weight: bold;
+  font-size: 20px;
+  background-color: #f1f1f1;
+}
+.navbar-brand{
+  font-family:rgb(89, 117, 231) serifs;
+  font-weight: bold;
+  border-radius: 5px;
+  color: yellow;
+  font-family: cursive;
+  text-align: center;
+ 
+}
+
+
+
+
+ 
