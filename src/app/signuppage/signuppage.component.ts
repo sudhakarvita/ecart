@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {FormBuilder,FormGroup,Validators} from '@angular/forms';
+import { Router } from '@angular/router';
 import { User } from '../shared/interfaces/user';
 import { ServiceService } from '../shared/service.service';
 @Component({
@@ -9,7 +10,7 @@ import { ServiceService } from '../shared/service.service';
 })
 export class SignuppageComponent {
 
-  constructor(private fb:FormBuilder, private us : ServiceService){}  
+  constructor(private fb:FormBuilder, private us : ServiceService, private router:Router){}  
     signup= this.fb.group({
      fname:['',[Validators.required,Validators.minLength(3),Validators.pattern('[a-zA-z]*')]],
      lname:['',[Validators.required,Validators.minLength(3),Validators.pattern('[a-zA-z]*')]],
@@ -129,8 +130,8 @@ submit(){
 
  this.us.addUser(user).subscribe(
   (res:any)=>{
-    this.signup.reset();
-    console.log('add sucessfully')},
+  this.router.navigate(['/login'])
+  },
   (err:any)=>{console.log('error occured',err)})
   
 }

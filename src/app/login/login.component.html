@@ -22,7 +22,7 @@
            </div>
     </div><br>
 </div>
-<button type="button" class="btn btn-primary" style="width: 100px;margin-left: 180px;width:150px"(click)="submit(rgForm)" [disabled]="rgForm.invalid" >submit</button>
+<button type="button" class="btn btn-primary" style="width: 100px;margin-left: 180px;width:150px"(click)="submit(rgForm.value)" [disabled]="rgForm.invalid" >submit</button>
 <button type="button" class="btn btn-primary" style="margin-left: 50px;" routerLink="/register-user">Register New User</button>
 <div class="text-center pt-4 text-muted" style="color:rgb(234, 224, 224)">Don't have account?<a routerLink="/signuppage">Signup</a></div>
 

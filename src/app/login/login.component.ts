@@ -1,6 +1,7 @@
 import { Component, OnInit, } from '@angular/core';
 import { FormBuilder,FormGroup,NgForm,Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { User } from '../shared/interfaces/user';
 import { ServiceService } from '../shared/service.service';
 
 @Component({
@@ -29,16 +30,20 @@ export class LoginComponent implements OnInit{
 
 
  submit(f:any){
-  console.log(f.value);
-  
-  
-  this.us.loginUser(f.value.userName, f.value.pwd).subscribe((res)=>{
+ this.us.getUsers().subscribe((res:any)=>{ 
+const pUser:User | undefined =res.find((x:User)=>{
+return x.email===f.userName && x.password===f.pwd
+})
+if(pUser){
+  alert('login success')
+  localStorage.setItem('token', JSON.stringify(pUser))
   this.router.navigate(['/home'])
+}else{
+  alert('user not found')
+}
+   })
+  }}
 
-  })
-  
-   }
-
- }
+ 
 
 
