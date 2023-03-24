@@ -1,9 +1,11 @@
+
 <div class="container" *ngIf= "(cartData?.cartProducts?.length>0 || cartData != undefined)">
     <table class="table">
         <thead>
          <tr>
                 <th>Serial No.</th>
                 <th>Product Title</th>
+                <th>Product Image</th>
                 <th>Product Price</th>
                 <th>Product Quantity</th>
                 <th>Total Price</th>
@@ -13,6 +15,7 @@
           <tr *ngFor="let p of cartData.cartProducts; let i=index">
                 <td>{{i+1}}</td>
                 <td>{{p.title}}</td>
+                <td><img src="{{p.images[0]}}"  alt="..." width="10%" height="10%" ></td>
                 <td>{{p.price}}</td>
                 <td>{{p.quantity}}</td>
                 <td>{{p.total}}</td>
@@ -36,10 +39,12 @@
 
     <div class="text-center m-5 ">
         <div *ngIf=" cartData == undefined">
-        <p><b>No Cart Items....</b><i class="bi bi-cart-x font-size:2rem;" style="font-size:2rem;color:brown"></i></p>       
+          <img src="/assets/images/pic1.webp" alt="url" width="300" height="300">
+        <p><b style="font-size:30px;">Your Cart is Empty....</b><i class="bi bi-cart-x font-size:4rem;" style="font-size:2rem;color:brown"></i></p>       
     </div>
-    <button class="btn btn-primary " routerLink="../products">Continue Shopping</button>
+    <button class="btn btn-primary " routerLink="../products">Shop Now</button>
 </div>
+
 
 <div *ngIf="showFlag" class="d-popup">
   <div class="popbody">

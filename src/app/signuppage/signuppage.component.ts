@@ -23,7 +23,7 @@ export class SignuppageComponent {
      check:['',[Validators.required]],
 
      address:this.fb.group({
-      adrs:['',[Validators.required,Validators.minLength(8),Validators.pattern('[a-zA-z]*')]],
+      adrs:['',[Validators.required,Validators.minLength(3),Validators.pattern('[a-zA-z]*')]],
      city:['',[Validators.required,Validators.minLength(3),Validators.pattern('[a-zA-z]*')]],
      state:['',[Validators.required,Validators.minLength(3),Validators.pattern('[a-zA-z]*')]],
      pincode:['',[Validators.required,Validators.maxLength(6),Validators.pattern('^[1-9][0-9]{5}$')]]}),
@@ -130,7 +130,7 @@ submit(){
 
  this.us.addUser(user).subscribe(
   (res:any)=>{
-  this.router.navigate(['/login'])
+  this.router.navigate(['login'])
   },
   (err:any)=>{console.log('error occured',err)})
   

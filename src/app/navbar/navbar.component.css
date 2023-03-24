@@ -28,11 +28,11 @@
 #sidebarMenu{
   z-index: 1;
 }
-.nav  li a.active{
-  color: rgb(59, 15, 15);
+.active{
+  color:white !important;
   font-weight: bold;
   font-size: 20px;
-  background-color: #f1f1f1;
+  background-color: #523c3c;
 }
 .navbar-brand{
   font-family:rgb(89, 117, 231) serifs;

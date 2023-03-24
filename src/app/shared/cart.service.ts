@@ -16,6 +16,8 @@ export class CartService{
 
  addCart(p:any){
   // this.cs.addCart(p);
+ 
+  
 if(this.cart?.cartProducts?.length >0){  
 this.cart?.cartProducts.filter((res:any)=>{
   if(res.id == p.id){
@@ -31,6 +33,7 @@ if(addFlag){
         id: p.id,
         title: p.title,
         price: p.price,
+        images:p.images,
         quantity:1,
         total: p.price,     
       }
@@ -41,6 +44,7 @@ if(addFlag){
     id: p.id,
     title: p.title,
     price: p.price,
+    images:p.images,
     quantity:1,
     total: p.price,     
   }

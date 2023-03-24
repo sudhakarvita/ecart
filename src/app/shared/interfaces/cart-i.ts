@@ -9,6 +9,7 @@ export interface CartProducts{
     id:any;
     title: string;
     price: number;
+    images:string;
     quantity:number;
     total:number;
 }

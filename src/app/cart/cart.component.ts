@@ -17,6 +17,8 @@ export class CartComponent {
   ngOnInit(){
     this.cs.getCart().subscribe((res:any)=>{
       this.cartData = res
+      console.log(this.cartData);
+      
     })
   }
   removeProduct(p:any){
@@ -28,6 +30,9 @@ export class CartComponent {
     this.ngOnInit()
   }
   confirmOrder(){
+    
     this.showFlag = true;
+    this.cs.emptyTotalCart();  
+    this.ngOnInit()
   }
 }

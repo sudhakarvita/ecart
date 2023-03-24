@@ -9,14 +9,11 @@ import { User } from './interfaces/user';
 })
 export class ServiceService {
   url = ' http://localhost:3000/users';
-userData:any=[
-];
+userData :any =[];
 
 isLoggedIn = new BehaviorSubject<boolean>(false);
 
-  constructor(private router:Router, private http : HttpClient) { 
-   
-  }
+  constructor(private router:Router, private http : HttpClient) {}
   isUserLoggedIn():boolean{   
     return !!localStorage.getItem('token')
   }

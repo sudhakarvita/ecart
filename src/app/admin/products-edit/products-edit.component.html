@@ -13,19 +13,28 @@
         </div>
         <div class="col">
             <label for="ln">Category</label>
-                <input   type="text" class="form-control" placeholder="Category" name="category" formControlName="category">
-                   
+            <select class="form-select" aria-label="Default select example" placeholder="Category" name="category" formControlName="category">                
+                <option ></option>
+                <option value="smartphones">smartphones</option>
+                <option value="laptops">laptops</option>
+                <option value="fragrances">fragrances</option>
+                <option value="skincare">skincare</option>
+                <option value="groceries">groceries</option>
+              </select>
+              <div>
+              <small class="text-danger" *ngIf= "editProduct.controls.category.touched && editProduct.controls.category.errors?.required">Select category</small>
+            </div>                   
         </div>
         </div><br>
         <div class="row g-3">
             <div class="col">
                <label for="pr">Price</label>
-                 <input   type="number" class="form-control" placeholder="Price" name="price" formControlName="price">
+                 <input   type="number" class="form-control" placeholder="Price" name="price" formControlName="price" min="1" max="30000">
                  <small  class="text-danger" *ngIf= "editProduct.controls.price.touched && editProduct.controls.price.errors?.required">required field</small>     
           </div>
           <div class="col">
               <label for="rt">Rating</label>
-                  <input   type="number" class="form-control" placeholder="Rating" name="rating" formControlName="rating">
+                  <input   type="number" class="form-control" placeholder="Rating" name="rating" formControlName="rating" min="1" max="5">
                   <small class="text-danger" *ngIf= "editProduct.controls.rating.touched && editProduct.controls.rating.errors?.required">required field</small> 
           </div>
           </div><br>
